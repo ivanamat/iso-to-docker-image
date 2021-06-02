@@ -3,13 +3,13 @@ version: '3.6'
 services:
 
   xrdp-kubuntu-1:
-    image: kubuntu:test
+    image: registry.git.ivanamat.es/docker/kubuntu:21.04-xrdp
     hostname: kubuntu
     privileged: true
     extra_hosts:
       - "mydns:8.8.8.8"
     environment:
-      - D_USER=myusername
+      - D_USER=myuser
       - U_USER=1000
       - G_USER=1000
       - D_PASS=mypassword

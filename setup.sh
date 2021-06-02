@@ -39,10 +39,10 @@ chown "$D_USER":"$D_USER" "/home/$D_USER"
 echo "setting user...."
 echo "$D_USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/default
 
-# Setting time zone:
+# Setting keyboard layout and time zone ( Spanish / Spain )
 setxkbmap es
 export TZ="Europe/Madrid"
 ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Install aditional software
-#apt-get -y install fonts-liberation
+#apt-get -y install git firefox
