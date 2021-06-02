@@ -1,0 +1,26 @@
+version: '3.6'
+
+services:
+
+  xrdp-kubuntu-1:
+    image: kubuntu:test
+    hostname: kubuntu
+    privileged: true
+    extra_hosts:
+      - "mydns:8.8.8.8"
+    environment:
+      - D_USER=myusername
+      - U_USER=1000
+      - G_USER=1000
+      - D_PASS=mypassword
+    volumes:
+      #- ./kubuntu/root:/root
+      #- ./kubuntu/home:/home
+      #- /home/oemunoz:/home/oemunoz #Use your own home
+      #- ./scripts:/scripts
+      #- ./xrdp/xrdp.ini:/etc/xrdp/xrdp.ini
+      #- ./xrdp/sesman.ini:/etc/xrdp/sesman.ini
+      - ./setup.sh:/setup.sh
+      - ./supervisord.conf:/etc/supervisord.conf
+    ports:
+      - '3389:3389'
